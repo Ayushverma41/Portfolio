@@ -17,7 +17,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;   /* allow full height even if content grows */
+      min-height: 100vh;
       padding: 20px;
     }
     .container {
@@ -27,11 +27,12 @@
       max-width: 1000px;
       width: 100%;
       gap: 40px;
-      flex-wrap: wrap; /* allow wrapping for small screens */
+      flex-wrap: wrap;
     }
     .about {
       flex: 1;
       min-width: 280px;
+      text-align: center;
     }
     .about h1 {
       font-size: 2.5rem;
@@ -46,7 +47,6 @@
     }
     .about .intro {
       font-size: 1.2rem;
-      text-align: center;
       margin-bottom: 20px;
     }
     .about .intro span {
@@ -57,7 +57,6 @@
       list-style: none;
       padding: 0;
       margin: 0 0 20px 0;
-      text-align: center;
     }
     .about .skills li {
       margin: 8px 0;
@@ -65,8 +64,8 @@
       color: #ddd;
     }
     .about .contact {
-      text-align: center;
       font-size: 1rem;
+      margin-bottom: 20px;
     }
     .about .contact a {
       color: #ff9800;
@@ -75,6 +74,27 @@
     .about .contact a:hover {
       text-decoration: underline;
     }
+
+    /* Button styling */
+    .follow-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 24px;
+      background-color: #ff9800;
+      color: #000;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .follow-btn:hover {
+      background-color: #e68900;
+      transform: scale(1.05);
+    }
+
     .image {
       flex: 1;
       display: flex;
@@ -107,10 +127,12 @@
       </ul>
       <p class="contact">
         You can reach me at 
-        <b><a href="https://www.linkedin.com/in/ayushverma41" target="_blank">LinkedIn</a></b> 
+        <b><a href="https://mail.google.com/mail/?view=cm&fs=1&to=ayush21032016@gmail.com" target="_blank" rel="noopener">ayush21032016@gmail.com</a></b> 
         or connect with me on 
-        <b><a href="https://linktr.ee/ayush21032016" target="_blank">Linktree</a></b>.
+        <b><a href="https://www.linkedin.com/in/ayushverma41" target="_blank">LinkedIn</a></b>.
       </p>
+      <!-- Follow for more button (Linktree link) -->
+      <a href="https://linktr.ee/ayush21032016" target="_blank" class="follow-btn">Follow for more</a>
     </div>
     <div class="image">
       <img src="Image/Cartoon Image.png" alt="My Photo">
@@ -143,7 +165,6 @@
       }
     }
 
-    // Run on page load and resize
     window.addEventListener("resize", adjustLayout);
     window.addEventListener("load", adjustLayout);
   </script>
