@@ -35,21 +35,56 @@
       font-size: 2.5rem;
       margin-bottom: 20px;
       color: #ff9800;
+      white-space: nowrap; /* Keep heading in single line */
     }
     .about p {
       font-size: 1.1rem;
       line-height: 1.6;
       color: #ddd;
     }
+    .about .intro {
+      font-size: 1.2rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .about .intro span {
+      color: #ff9800;
+      font-weight: bold;
+    }
+    .about .skills {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+      text-align: center;
+    }
+    .about .skills li {
+      margin: 8px 0;
+      font-size: 1.1rem;
+      color: #ddd;
+    }
+    .about .contact {
+      text-align: center;
+      font-size: 1rem;
+    }
+    .about .contact a {
+      color: #ff9800;
+      text-decoration: none;
+    }
+    .about .contact a:hover {
+      text-decoration: underline;
+    }
     .image {
       flex: 1;
       display: flex;
       justify-content: center;
+      text-align: center;
     }
     .image img {
       width: 100%;
       max-width: 300px;
-      border-radius: 10px;
+      aspect-ratio: 1/1;       /* keeps square dimensions */
+      border-radius: 50%;      /* makes it circular */
+      object-fit: cover;       /* crops inside the circle */
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     }
 
@@ -69,16 +104,23 @@
   <div class="container">
     <div class="about">
       <h1>Hi, I'm Ayush Kumar Verma</h1>
-      <p>
-        A growing Engineer, Your good Friend<br>
-        A Skilled developer<br>
-        Passionate for learning<br><br>
-        You can reach me at <b><a href="https://www.linkedin.com/in/ayushverma41">linkedin</a></b> or connect with me on 
-        <b><a href="https://linktr.ee/ayush21032016">linktree</a></b>.
+      <p class="intro">
+        I’m a growing <span>Engineer</span> and a reliable <span>friend</span>, passionate about building and learning every day.  
+      </p>
+      <ul class="skills">
+        <li>Skilled Developer</li>
+        <li>Passionate for Learning</li>
+        <li>Always open to connect & collaborate</li>
+      </ul>
+      <p class="contact">
+        You can reach me at 
+        <b><a href="https://www.linkedin.com/in/ayushverma41" target="_blank">LinkedIn</a></b> 
+        or connect with me on 
+        <b><a href="https://linktr.ee/ayush21032016" target="_blank">Linktree</a></b>.
       </p>
     </div>
     <div class="image">
-      <img src="your-image.jpg" alt="My Photo">
+      <img src="Cartoon Image.png" alt="My Photo">
     </div>
   </div>
 </body>
