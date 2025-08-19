@@ -17,7 +17,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;   /* allow full height even if content grows */
       padding: 20px;
     }
     .container {
@@ -27,15 +27,17 @@
       max-width: 1000px;
       width: 100%;
       gap: 40px;
+      flex-wrap: wrap; /* allow wrapping for small screens */
     }
     .about {
       flex: 1;
+      min-width: 280px;
     }
     .about h1 {
       font-size: 2.5rem;
       margin-bottom: 20px;
       color: #ff9800;
-      white-space: nowrap; /* Keep heading in single line */
+      white-space: nowrap;
     }
     .about p {
       font-size: 1.1rem;
@@ -78,25 +80,16 @@
       display: flex;
       justify-content: center;
       text-align: center;
+      min-width: 200px;
     }
     .image img {
       width: 100%;
       max-width: 300px;
-      aspect-ratio: 1/1;       /* keeps square dimensions */
-      border-radius: 50%;      /* makes it circular */
-      object-fit: cover;       /* crops inside the circle */
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      object-fit: cover;
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-    }
-
-    /* Responsive for small screens */
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        text-align: center;
-      }
-      .image {
-        margin-top: 20px;
-      }
+      transition: width 0.3s ease, max-width 0.3s ease;
     }
   </style>
 </head>
@@ -120,8 +113,39 @@
       </p>
     </div>
     <div class="image">
-      <img src="Image/Cartoon Image.png" alt="My Photo">
+      <img src="Cartoon Image.png" alt="My Photo">
     </div>
   </div>
+
+  <script>
+    function adjustLayout() {
+      const width = window.innerWidth;
+      const h1 = document.querySelector(".about h1");
+      const intro = document.querySelector(".about .intro");
+      const img = document.querySelector(".image img");
+
+      if (width < 480) {
+        h1.style.fontSize = "1.5rem";
+        intro.style.fontSize = "1rem";
+        img.style.maxWidth = "180px";
+      } else if (width < 768) {
+        h1.style.fontSize = "2rem";
+        intro.style.fontSize = "1.1rem";
+        img.style.maxWidth = "220px";
+      } else if (width < 1200) {
+        h1.style.fontSize = "2.3rem";
+        intro.style.fontSize = "1.2rem";
+        img.style.maxWidth = "260px";
+      } else {
+        h1.style.fontSize = "2.5rem";
+        intro.style.fontSize = "1.2rem";
+        img.style.maxWidth = "300px";
+      }
+    }
+
+    // Run on page load and resize
+    window.addEventListener("resize", adjustLayout);
+    window.addEventListener("load", adjustLayout);
+  </script>
 </body>
 </html>
