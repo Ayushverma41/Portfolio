@@ -1,107 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayush Kumar Verma | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1000px;
+      width: 100%;
+      gap: 40px;
+    }
+    .about {
+      flex: 1;
+    }
+    .about h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #ff9800;
+    }
+    .about p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ddd;
+    }
+    .image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+    .image img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            color: #00ffcc;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: #cccccc;
-        }
-
-        .social-links a {
-            margin: 0 10px;
-            color: #00ffcc;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .projects {
-            margin-top: 40px;
-        }
-
-        .project {
-            background-color: #1e1e1e;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            transition: transform 0.2s;
-        }
-
-        .project:hover {
-            transform: scale(1.02);
-        }
-
-        .project a {
-            color: #00ffcc;
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            .project {
-                padding: 15px;
-            }
-        }
-    </style>
+    /* Responsive for small screens */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .image {
+        margin-top: 20px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <header>
-        <h1>Ayush Kumar Verma</h1>
-        <p>Coder | Developer | Tech Enthusiast</p>
-        <div class="social-links">
-            <a href="https://github.com/Ayushverma41" target="_blank">GitHub</a>
-            <a href="https://docs.google.com/document/d/1yrcuf8odL_I_9aVsgjL2jL8ctS_VefoS2W-00xTpSp8/edit?usp=drivesdk" target="_blank">Resume</a>
-            <a href="https://in.linkedin.com/in/ayush-verma-230186328" target="_blank">LinkedIn</a>
-        </div>
-    </header>
-
-    <section class="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <a href="https://ayushverma41.github.io/pure/Pure.html">Project 1 - E-commerce Website - PURE</a>
-        </div>
-        <div class="project">
-            <a href="https://github.com/Ayushverma41/Recommendation-system.git">Project 2 - E-commerce Recommendation System</a>
-        </div>
-        <!-- Add more projects here -->
-    </section>
-
-    <script>
-        // Add interactivity if needed later
-        console.log("Welcome to Ayush's Portfolio");
-    </script>
+  <div class="container">
+    <div class="about">
+      <h1>Ayush Kumar Verma</h1>
+      <p>
+        Hi, I'm a growing Engineer, Your good Friend<br>
+        A Skilled developer<br>
+        Passionate for learning<br><br>
+        You can reach me at <b><a href="www.linkedin.com/in/ayushverma41">linkedin</a></b> or connect with me on 
+        <b><a href="linktr.ee/ayush21032016">linktree</a></b>.
+      </p>
+    </div>
+    <div class="image">
+      <img src="your-image.jpg" alt="My Photo">
+    </div>
+  </div>
 </body>
-
 </html>
