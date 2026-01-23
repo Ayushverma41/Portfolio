@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Engineer Portfolio</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #1a1a1a;
+            color: white;
+            padding: 15px 0;
+            text-align: left;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        nav { padding-left: 40px; display: flex; align-items: center; }
+        
+        /* Logo Styles */
+        .logo {
+            font-size: 1.5rem;
+            margin-right: 40px;
+            color: #64ffda; /* Techy Teal */
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        .logo i { margin-right: 10px; }
+
+        nav a {
+            color: #ccd6f6;
+            margin-right: 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        nav a:hover { color: #64ffda; }
+
+        section {
+            padding: 120px 10%;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        
+        h2 { border-bottom: 2px solid #64ffda; display: inline-block; margin-bottom: 30px; }
+
+        /* Project Cards */
+        .project-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <i class="fas fa-code"></i> AV_DEV
+        </div>
+        <a href="#home">Home</a>
+        <a href="#summary">Summary</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates</a>
+    </nav>
+</header>
+
+<section id="home">
+    <h1>Hello, I'm <span style="color:#64ffda">Your Name</span>.</h1>
+    <p>A Software Engineer specializing in building exceptional digital experiences.</p>
+</section>
+
+<section id="summary">
+    <h2>Professional Summary</h2>
+    <p>Dynamic and detail-oriented Software Engineer with a passion for clean code and scalable systems. Expert in solving complex problems with modern technologies.</p>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+        <h3><i class="fas fa-laptop-code"></i> E-Commerce Backend</h3>
+        <p>Built a robust API using Node.js and MongoDB to handle thousands of transactions per second.</p>
+    </div>
+</section>
+
+<section id="certificates">
+    <h2>Certificates</h2>
+    <p><i class="fas fa-certificate"></i> AWS Certified Solutions Architect</p>
+    <p><i class="fas fa-certificate"></i> Meta Full-Stack Engineer Professional Certificate</p>
+</section>
+
+</body>
+</html>
