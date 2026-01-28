@@ -87,8 +87,8 @@ nav {
 
 /* ---------- SECTIONS ---------- */
 section {
-    padding: 90px 8% 60px;
     min-height: 100vh;
+    padding: 90px 8% 60px;
     box-sizing: border-box;
 }
 
@@ -99,14 +99,52 @@ h2 {
     display: inline-block;
 }
 
-/* ---------- PROJECT CARD ---------- */
+/* ---------- PROJECT CARD (SYNCED STYLE) ---------- */
 .project-card {
+    display: block; /* allows anchor wrapping */
+    padding: 32px 30px;
+    margin-bottom: 26px;
     background: linear-gradient(145deg, #0b0b0b, #121212);
-    padding: 28px;
-    border-radius: 12px;
-    margin-bottom: 22px;
-    box-shadow: 0 6px 18px rgba(255, 215, 0, 0.12);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 215, 0, 0.22);
+    box-shadow:
+        0 0 28px rgba(255, 215, 0, 0.10),
+        inset 0 0 22px rgba(255, 215, 0, 0.05);
+    text-decoration: none;
+    color: inherit;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 0 34px rgba(255, 215, 0, 0.28),
+        0 0 60px rgba(255, 215, 0, 0.15);
+}
+
+.project-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 14px;
+    color: #ffd700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.project-card p {
+    font-size: 0.9rem;
+    color: #e6e6e6;
+    line-height: 1.7;
+}
+
+/* keyboard accessibility */
+.project-card:focus-visible {
+    outline: 2px solid #ffd700;
+    outline-offset: 4px;
+}
+
 
 /* ---------- HOME ---------- */
 #home {
@@ -125,12 +163,10 @@ h2 {
     box-shadow:
         0 0 60px rgba(255, 215, 0, 0.18),
         inset 0 0 45px rgba(255, 215, 0, 0.08);
-
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 100px;
-
     transform: translateY(20px);
     transition: box-shadow 0.75s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: box-shadow;
@@ -143,15 +179,13 @@ h2 {
         inset 0 0 30px rgba(255, 215, 0, 0.05);
 }
 
-
-
 /* ---------- LEFT CONTENT ---------- */
 .home-content {
     flex: 2.2;
     text-align: left;
 }
 
-/* ---------- HERO TITLE ---------- */
+/* ---------- HERO TEXT ---------- */
 .hero-title {
     line-height: 1.15;
     margin-bottom: 24px;
@@ -175,28 +209,24 @@ h2 {
 .home-content p {
     font-size: 1rem;
     color: #e6c85c;
-    max-width: 100%;
 }
 
-/* ---------- HERO CTA BUTTON ---------- */
+/* ---------- HERO CTA ---------- */
 .hero-actions {
     margin-top: 36px;
 }
 
 .btn-contact {
-    border: none;              /* remove default border */
-    outline: none;             /* remove focus outline */
-    background-clip: padding-box;
-    appearance: none;          /* kill browser button styling */
-    -webkit-appearance: none;
-
+    appearance: none;
+    border: none;
+    outline: none;
     display: inline-block;
     padding: 12px 30px;
     font-size: 0.88rem;
     font-weight: 700;
     letter-spacing: 1.5px;
-    text-decoration: none;
     color: #000;
+    text-decoration: none;
     background: linear-gradient(135deg, #ffd700, #e6c85c);
     border-radius: 999px;
     box-shadow:
@@ -217,8 +247,7 @@ h2 {
     outline-offset: 4px;
 }
 
-
-/* ---------- CONTACT POPUP BUTTONS ---------- */
+/* ---------- CONTACT POPUPS ---------- */
 .contact-wrapper {
     position: relative;
     display: inline-flex;
@@ -238,20 +267,16 @@ h2 {
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    background: #000;                 /* black button */
-    color: #fff;                      /* white icon */
-    border: 2px solid #ffd700;        /* yellow border */
-
+    background: #0f0f0f;
+    color: #fff;
+    border: 2px solid #ffd700;
     display: flex;
     align-items: center;
     justify-content: center;
-
     font-size: 1.1rem;
     text-decoration: none;
-
     transform: scale(0) translateX(-20px);
     opacity: 0;
-
     transition:
         transform 0.35s ease,
         opacity 0.35s ease,
@@ -259,45 +284,22 @@ h2 {
         border-color 0.35s ease;
 }
 
-/* Glow */
 .contact-circle:hover {
-    transition:
-        transform 0.05s linear,
-        box-shadow 0.05s linear,
-        border-color 0.05s linear;
-
-    box-shadow: 0 0 18px rgba(255, 215, 0, 0.7);
     transform: scale(1.15);
+    box-shadow: 0 0 18px rgba(255, 215, 0, 0.7);
 }
 
-
-
-/* OPEN (pop out) */
-.contact-wrapper.active .contact-circle:nth-child(1) { transition-delay: 0.05s; }
-.contact-wrapper.active .contact-circle:nth-child(2) { transition-delay: 0.12s; }
-.contact-wrapper.active .contact-circle:nth-child(3) { transition-delay: 0.18s; }
-.contact-wrapper.active .contact-circle:nth-child(4) { transition-delay: 0.25s; }
-
-/* CLOSE (reverse order) */
-.contact-wrapper:not(.active) .contact-circle:nth-child(1) { transition-delay: 0.25s; }
-.contact-wrapper:not(.active) .contact-circle:nth-child(2) { transition-delay: 0.18s; }
-.contact-wrapper:not(.active) .contact-circle:nth-child(3) { transition-delay: 0.12s; }
-.contact-wrapper:not(.active) .contact-circle:nth-child(4) { transition-delay: 0.05s; }
-
-/* Active state */
+/* popup animation timing */
 .contact-wrapper.active .contact-circle {
     transform: scale(1) translateX(0);
     opacity: 1;
     pointer-events: auto;
 }
 
-/* Platform accents */
-.github   { background: #0f0f0f; }
-.linkedin { background: #0f0f0f; color: #fff; }
-.gmail    { background: #0f0f0f; color: #fff; }
-.linktree { background: #0f0f0f; color: #fff; }
-
-
+.contact-wrapper.active .contact-circle:nth-child(1) { transition-delay: 0.05s; }
+.contact-wrapper.active .contact-circle:nth-child(2) { transition-delay: 0.12s; }
+.contact-wrapper.active .contact-circle:nth-child(3) { transition-delay: 0.18s; }
+.contact-wrapper.active .contact-circle:nth-child(4) { transition-delay: 0.25s; }
 
 /* ---------- RIGHT IMAGE ---------- */
 .home-image {
@@ -313,8 +315,74 @@ h2 {
     object-fit: cover;
     border-radius: 50%;
     border: 4px solid rgba(255, 215, 0, 0.45);
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.28);
+}
+
+/* ---------- SUMMARY ---------- */
+.summary-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.summary-card {
+    max-width: 900px;
+    padding: 44px 48px;
+    background: linear-gradient(145deg, #0b0b0b, #121212);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 215, 0, 0.18);
     box-shadow:
-        0 0 40px rgba(255, 215, 0, 0.28);
+        0 0 40px rgba(255, 215, 0, 0.12),
+        inset 0 0 30px rgba(255, 215, 0, 0.06);
+    position: relative;
+    transition: box-shadow 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: box-shadow;
+}
+
+.summary-card:hover { 
+    box-shadow: 
+    0 0 28px rgba(255, 215, 0, 0.22), 
+    0 0 60px rgba(255, 215, 0, 0.12), 
+    inset 0 0 30px rgba(255, 215, 0, 0.05); 
+}
+
+.summary-card::before {
+    content: "";
+    position: absolute;
+    left: -18px;
+    top: 28px;
+    width: 3px;
+    height: 65%;
+    background: #ffd700;
+    border-radius: 3px;
+}
+
+.summary-card p {
+    margin-bottom: 22px;
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: #e6e6e6;
+}
+
+.summary-lead {
+    font-size: 1.08rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.summary-card span {
+    color: #ffd700;
+    font-weight: 500;
+}
+.ggits-link { color: #ffd700; /* gold – guaranteed contrast */ 
+    font-weight: 600; 
+    text-decoration: none; 
+    transition: color 0.25s ease, 
+    text-shadow 0.25s ease; } 
+    
+.ggits-link:hover { 
+    color: #ffffff; 
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.8); 
 }
 
 /* ---------- RESPONSIVE ---------- */
@@ -343,85 +411,84 @@ h2 {
         height: 280px;
     }
 }
-.ggits-link {
-  color: #ffd700;          /* gold – guaranteed contrast */
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.25s ease, text-shadow 0.25s ease;
+
+/* ---------- SKILLS & CERTIFICATIONS ---------- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 26px;
+    margin-top: 40px;
 }
 
-.ggits-link:hover {
-  color: #ffffff;
-  text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
-}
-
-/* ---------- SUMMARY ---------- */
-.summary-section {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.summary-card {
-    max-width: 900px;
-    padding: 44px 48px;
+.skill-box {
+    padding: 28px 26px;
     background: linear-gradient(145deg, #0b0b0b, #121212);
     border-radius: 18px;
-    border: 1px solid rgba(255, 215, 0, 0.18);
-
+    border: 1px solid rgba(255, 215, 0, 0.22);
     box-shadow:
-        0 0 40px rgba(255, 215, 0, 0.12),
-        inset 0 0 30px rgba(255, 215, 0, 0.06);
-
-    position: relative;
-
-    transition: box-shadow 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: box-shadow;
+        0 0 28px rgba(255, 215, 0, 0.10),
+        inset 0 0 22px rgba(255, 215, 0, 0.05);
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
-.summary-card:hover {
+.skill-box:hover {
+    transform: translateY(-8px);
     box-shadow:
-        0 0 28px rgba(255, 215, 0, 0.22),
-        0 0 60px rgba(255, 215, 0, 0.12),
-        inset 0 0 30px rgba(255, 215, 0, 0.05);
+        0 0 34px rgba(255, 215, 0, 0.28),
+        0 0 60px rgba(255, 215, 0, 0.15);
 }
 
-
-/* vertical accent */
-.summary-card::before {
-    content: "";
-    position: absolute;
-    left: -18px;
-    top: 28px;
-    width: 3px;
-    height: 65%;
-    background: #ffd700;
-    border-radius: 3px;
-}
-
-.summary-card p {
-    margin-bottom: 22px;
-    color: #e6e6e6;
-    font-size: 0.95rem;
-    line-height: 1.85;
-}
-
-/* lead paragraph */
-.summary-lead {
-    font-size: 1.08rem;
-    font-weight: 500;
-    color: #ffffff;
-}
-
-/* keyword highlight */
-.summary-card span {
+.skill-box h3 {
+    font-size: 1.05rem;
+    margin-bottom: 16px;
     color: #ffd700;
-    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
+.skill-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
+.skill-box li {
+    font-size: 0.9rem;
+    color: #e6e6e6;
+    margin-bottom: 0px;
+    line-height: 1.6;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.skill-box li a {
+    display: block;
+    padding: 4px 8px;
+    line-height: 1.4;
+    color: inherit;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.skill-box li a:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: translateX(5px);
+}
+
+.skill-box li::before {
+    content: "▶";
+    color: #ffd700;
+    font-size: 0.75rem;
+    margin-right: 8px;
+}
 
 </style>
+
 
 </head>
 
@@ -435,9 +502,8 @@ h2 {
     <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#summary">Summary</a>
-        <a href="#skills">Skills</a>
+        <a href="#Skills and Certifications">Skills and Certifications</a>
         <a href="#projects">Projects</a>
-        <a href="#certificates">Certificates</a>
     </div>
 </nav>
 </header>
@@ -477,7 +543,7 @@ h2 {
     </div>
 
     <div class="home-image">
-        <img src="your-image.jpg" alt="Ayush Kumar Verma">
+        <img src="Image/Cartoon Image.png" alt="Ayush Kumar Verma">
     </div>
 </div>
 </section>
@@ -518,27 +584,122 @@ h2 {
 </section>
 
 
-<section id="skills">
-    <h2>
-        Skills
-    </h2>
-</section>
+<section id="Skills and Certifications">
+    <h2>Skills and Certifications</h2>
 
-<section id="projects">
-    <h2>Projects</h2>
-    <div class="project-card">
-        <h3><i class="fas fa-laptop-code"></i> E-Commerce Backend</h3>
-        <p>
-            Built a robust API using Node.js and MongoDB to handle thousands of transactions per second.
-        </p>
+    <div class="skills-grid">
+
+        <div class="skill-box">
+            <h3><i class="fas fa-code"></i> Programming Languages</h3>
+            <ul>
+                <li><a href="#">Python (PCAP Certified)</a></li>
+                <li><a href="#">C++ (CPA Certified)</a></li>
+                <li><a href="#">C Programming (CLA Certified)</a></li>
+                <li><a href="#">Java Fundamentals & Advanced Java</a></li>
+            </ul>
+        </div>
+
+        <div class="skill-box">
+            <h3><i class="fas fa-database"></i> Databases & Backend</h3>
+            <ul>
+                <li><a href="#">Database Design</a></li>
+                <li><a href="#">SQL Programming</a></li>
+                <li><a href="#">Relational Database Concepts</a></li>
+            </ul>
+        </div>
+
+        <div class="skill-box">
+            <h3><i class="fas fa-brain"></i> AI & Machine Learning</h3>
+            <ul>
+                <li><a href="#">Machine Learning Foundations</a></li>
+                <li><a href="#">Natural Language Processing</a></li>
+                <li><a href="#">AI with Machine Learning in Java</a></li>
+                <li><a href="#">AI for Beginners</a></li>
+            </ul>
+        </div>
+
+        <div class="skill-box">
+            <h3><i class="fas fa-cloud"></i> Cloud Computing</h3>
+            <ul>
+                <li><a href="#">AWS Cloud Foundations</a></li>
+                <li><a href="#">AWS Machine Learning Foundations</a></li>
+                <li><a href="#">AWS Machine Learning for NLP</a></li>
+                <li><a href="#">Alibaba Cloud Certified Developer</a></li>
+            </ul>
+        </div>
+
+        <div class="skill-box">
+            <h3><i class="fas fa-shield-alt"></i> Cybersecurity & Networking</h3>
+            <ul>
+                <li><a href="#">Cybersecurity Essentials</a></li>
+                <li><a href="#">CCNA: Networks, Routing & Switching</a></li>
+                <li><a href="#">Enterprise Networking & Automation</a></li>
+                <li><a href="#">Packet Tracer Network Simulation</a></li>
+            </ul>
+        </div>
+
+        <div class="skill-box">
+            <h3><i class="fas fa-project-diagram"></i> Agile & Platforms</h3>
+            <ul>
+                <li><a href="#">Agile Project Management</a></li>
+                <li><a href="#">Salesforce AI Agent Development</a></li>
+                <li><a href="#">Software Development Lifecycle</a></li>
+            </ul>
+        </div>
+
     </div>
 </section>
 
-<section id="certificates">
-    <h2>Certificates</h2>
-    <p><i class="fas fa-certificate"></i> AWS Certified Solutions Architect</p>
-    <p><i class="fas fa-certificate"></i> Meta Full-Stack Engineer Professional Certificate</p>
+
+<section id="projects">
+    <h2>Projects</h2>
+
+    <a href="https://github.com/Ayushverma41/CommandPal.git"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="project-card">
+
+        <h3><i class="fas fa-laptop-code"></i>CommandPal - NLP2CMD</h3>
+        <p>
+            AI-powered assistant for command-line operations. It can convert natural language into shell commands.
+        </p>
+    </a>
+
+    <a href="https://github.com/Ayushverma41/Mental-State-Prediction-using-NLP.git"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="project-card">
+
+        <h3><i class="fas fa-laptop-code"></i>Mental State Prediction</h3>
+        <p>
+            Multiple Models trained to pridict mental state of a person using Social Media Text.
+        </p>
+    </a>
+
+    <a href="https://ayushverma41.github.io/Pure/"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="project-card">
+
+        <h3><i class="fas fa-laptop-code"></i> E-Commerce Frontend "PURE"</h3>
+        <p>
+            Built a well structured user friendly e-commerce website.
+        </p>
+    </a>
+
+    <a href="https://github.com/Ayushverma41/Recommendation-system.git"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="project-card">
+
+        <h3><i class="fas fa-laptop-code"></i>Recommendation system</h3>
+        <p>
+            Well structured Recommendation system for e-commerce website designed on Streamlit.
+        </p>
+    </a>
+
 </section>
+
 
 
 <script>
