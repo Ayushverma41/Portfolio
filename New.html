@@ -4,99 +4,533 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Software Engineer Portfolio</title>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            line-height: 1.6;
-            background-color: #f4f7f6;
-        }
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: #1a1a1a;
-            color: white;
-            padding: 15px 0;
-            text-align: left;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-        nav { padding-left: 40px; display: flex; align-items: center; }
-        
-        /* Logo Styles */
-        .logo {
-            font-size: 1.5rem;
-            margin-right: 40px;
-            color: #64ffda; /* Techy Teal */
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-        .logo i { margin-right: 10px; }
+/* ---------- ROOT ---------- */
+html {
+    scroll-behavior: smooth;
+}
 
-        nav a {
-            color: #ccd6f6;
-            margin-right: 25px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-        nav a:hover { color: #64ffda; }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+    background: #000;
+    color: #ffd700;
+}
 
-        section {
-            padding: 120px 10%;
-            min-height: 100vh;
-            box-sizing: border-box;
-        }
-        
-        h2 { border-bottom: 2px solid #64ffda; display: inline-block; margin-bottom: 30px; }
+/* ---------- HEADER ---------- */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+}
 
-        /* Project Cards */
-        .project-card {
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-    </style>
+nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 48px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffd700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.25s ease, color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.logo:hover {
+    color: #fff;
+    transform: scale(1.12);
+    text-shadow:
+        0 0 6px #ffd700,
+        0 0 12px #ffd700,
+        0 0 18px rgba(255, 215, 0, 0.8);
+}
+
+.nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 26px;
+}
+
+.nav-links a {
+    color: #ffd700;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    transition: transform 0.25s ease, color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: #fff;
+    transform: scale(1.12);
+    text-shadow:
+        0 0 6px #ffd700,
+        0 0 12px rgba(255, 215, 0, 0.7);
+}
+
+/* ---------- SECTIONS ---------- */
+section {
+    padding: 90px 8% 60px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+h2 {
+    font-size: 1.7rem;
+    margin-bottom: 32px;
+    border-bottom: 2px solid #ffd700;
+    display: inline-block;
+}
+
+/* ---------- PROJECT CARD ---------- */
+.project-card {
+    background: linear-gradient(145deg, #0b0b0b, #121212);
+    padding: 28px;
+    border-radius: 12px;
+    margin-bottom: 22px;
+    box-shadow: 0 6px 18px rgba(255, 215, 0, 0.12);
+}
+
+/* ---------- HOME ---------- */
+#home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-box {
+    width: 100%;
+    max-width: 1600px;
+    padding: 100px 140px;
+    background: linear-gradient(145deg, #0b0b0b, #121212);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 24px;
+    box-shadow:
+        0 0 60px rgba(255, 215, 0, 0.18),
+        inset 0 0 45px rgba(255, 215, 0, 0.08);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 100px;
+
+    transform: translateY(20px);
+    transition: box-shadow 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: box-shadow;
+}
+
+.home-box:hover {
+    box-shadow:
+        0 0 28px rgba(255, 215, 0, 0.22),
+        0 0 60px rgba(255, 215, 0, 0.12),
+        inset 0 0 30px rgba(255, 215, 0, 0.05);
+}
+
+
+
+/* ---------- LEFT CONTENT ---------- */
+.home-content {
+    flex: 2.2;
+    text-align: left;
+}
+
+/* ---------- HERO TITLE ---------- */
+.hero-title {
+    line-height: 1.15;
+    margin-bottom: 24px;
+}
+
+.intro-line {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #ffd700;
+}
+
+.name-line {
+    display: block;
+    font-size: 2.35rem;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    color: #0092CC;
+}
+
+.home-content p {
+    font-size: 1rem;
+    color: #e6c85c;
+    max-width: 100%;
+}
+
+/* ---------- HERO CTA BUTTON ---------- */
+.hero-actions {
+    margin-top: 36px;
+}
+
+.btn-contact {
+    border: none;              /* remove default border */
+    outline: none;             /* remove focus outline */
+    background-clip: padding-box;
+    appearance: none;          /* kill browser button styling */
+    -webkit-appearance: none;
+
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    color: #000;
+    background: linear-gradient(135deg, #ffd700, #e6c85c);
+    border-radius: 999px;
+    box-shadow:
+        0 0 20px rgba(255, 215, 0, 0.45),
+        0 0 40px rgba(255, 215, 0, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-contact:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+        0 0 28px rgba(255, 215, 0, 0.7),
+        0 0 60px rgba(255, 215, 0, 0.45);
+}
+
+.btn-contact:focus-visible {
+    outline: 2px solid #ffd700;
+    outline-offset: 4px;
+}
+
+
+/* ---------- CONTACT POPUP BUTTONS ---------- */
+.contact-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.contact-popups {
+    position: absolute;
+    left: 100%;
+    display: flex;
+    gap: 14px;
+    margin-left: 42px;
+    pointer-events: none;
+}
+
+.contact-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #000;                 /* black button */
+    color: #fff;                      /* white icon */
+    border: 2px solid #ffd700;        /* yellow border */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.1rem;
+    text-decoration: none;
+
+    transform: scale(0) translateX(-20px);
+    opacity: 0;
+
+    transition:
+        transform 0.35s ease,
+        opacity 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+/* Glow */
+.contact-circle:hover {
+    transition:
+        transform 0.05s linear,
+        box-shadow 0.05s linear,
+        border-color 0.05s linear;
+
+    box-shadow: 0 0 18px rgba(255, 215, 0, 0.7);
+    transform: scale(1.15);
+}
+
+
+
+/* OPEN (pop out) */
+.contact-wrapper.active .contact-circle:nth-child(1) { transition-delay: 0.05s; }
+.contact-wrapper.active .contact-circle:nth-child(2) { transition-delay: 0.12s; }
+.contact-wrapper.active .contact-circle:nth-child(3) { transition-delay: 0.18s; }
+.contact-wrapper.active .contact-circle:nth-child(4) { transition-delay: 0.25s; }
+
+/* CLOSE (reverse order) */
+.contact-wrapper:not(.active) .contact-circle:nth-child(1) { transition-delay: 0.25s; }
+.contact-wrapper:not(.active) .contact-circle:nth-child(2) { transition-delay: 0.18s; }
+.contact-wrapper:not(.active) .contact-circle:nth-child(3) { transition-delay: 0.12s; }
+.contact-wrapper:not(.active) .contact-circle:nth-child(4) { transition-delay: 0.05s; }
+
+/* Active state */
+.contact-wrapper.active .contact-circle {
+    transform: scale(1) translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Platform accents */
+.github   { background: #0f0f0f; }
+.linkedin { background: #0f0f0f; color: #fff; }
+.gmail    { background: #0f0f0f; color: #fff; }
+.linktree { background: #0f0f0f; color: #fff; }
+
+
+
+/* ---------- RIGHT IMAGE ---------- */
+.home-image {
+    flex: 0 0 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-image img {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 215, 0, 0.45);
+    box-shadow:
+        0 0 40px rgba(255, 215, 0, 0.28);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+    nav {
+        padding: 14px 24px;
+    }
+
+    .home-box {
+        flex-direction: column;
+        padding: 80px 40px;
+        gap: 60px;
+        text-align: center;
+    }
+
+    .home-content {
+        text-align: center;
+    }
+
+    .name-line {
+        font-size: 2.1rem;
+    }
+
+    .home-image img {
+        width: 280px;
+        height: 280px;
+    }
+}
+.ggits-link {
+  color: #ffd700;          /* gold – guaranteed contrast */
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.ggits-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+}
+
+/* ---------- SUMMARY ---------- */
+.summary-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.summary-card {
+    max-width: 900px;
+    padding: 44px 48px;
+    background: linear-gradient(145deg, #0b0b0b, #121212);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 215, 0, 0.18);
+
+    box-shadow:
+        0 0 40px rgba(255, 215, 0, 0.12),
+        inset 0 0 30px rgba(255, 215, 0, 0.06);
+
+    position: relative;
+
+    transition: box-shadow 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: box-shadow;
+}
+
+.summary-card:hover {
+    box-shadow:
+        0 0 28px rgba(255, 215, 0, 0.22),
+        0 0 60px rgba(255, 215, 0, 0.12),
+        inset 0 0 30px rgba(255, 215, 0, 0.05);
+}
+
+
+/* vertical accent */
+.summary-card::before {
+    content: "";
+    position: absolute;
+    left: -18px;
+    top: 28px;
+    width: 3px;
+    height: 65%;
+    background: #ffd700;
+    border-radius: 3px;
+}
+
+.summary-card p {
+    margin-bottom: 22px;
+    color: #e6e6e6;
+    font-size: 0.95rem;
+    line-height: 1.85;
+}
+
+/* lead paragraph */
+.summary-lead {
+    font-size: 1.08rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* keyword highlight */
+.summary-card span {
+    color: #ffd700;
+    font-weight: 500;
+}
+
+
+
+</style>
+
 </head>
+
 <body>
 
 <header>
-    <nav>
-        <div class="logo">
-            <i class="fas fa-code"></i> AV_DEV
-        </div>
+<nav>
+    <a href="#home" class="logo">
+        <i class="fas fa-code"></i> Mr. VERMA
+    </a>
+    <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#summary">Summary</a>
+        <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#certificates">Certificates</a>
-    </nav>
+    </div>
+</nav>
 </header>
 
 <section id="home">
-    <h1>Hello, I'm <span style="color:#0092CC">AYUSH KUMAR VERMA</span>.</h1>
-    <p>A Software Engineer specializing in building exceptional digital experiences.</p>
+<div class="home-box">
+    <div class="home-content">
+        <h1 class="hero-title">
+            <span class="intro-line">Hello, I'm</span>
+            <span class="name-line">AYUSH KUMAR VERMA</span>
+        </h1>
+
+        <p>
+            A Software Engineer with expertise in Natural Language Processing and machine learning model design.
+            I build intelligent, user-centric digital experiences by combining strong engineering principles with modern AI techniques.
+        </p>
+        <div class="hero-actions">
+            <div class="contact-wrapper">
+                <button class="btn-contact" id="contactToggle">CONTACT ME</button>
+                
+                <div class="contact-popups">
+                    <a href="https://github.com/yourusername" target="_blank" class="contact-circle github">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" class="contact-circle linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:yourmail@gmail.com" class="contact-circle gmail">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://linktr.ee/yourusername" target="_blank" class="contact-circle linktree">
+                        <i class="fas fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="home-image">
+        <img src="your-image.jpg" alt="Ayush Kumar Verma">
+    </div>
+</div>
 </section>
 
-<section id="summary">
+<section id="summary" class="summary-section">
     <h2>Professional Summary</h2>
-    <p>Dynamic and detail-oriented Software Engineer with a passion for clean code and scalable systems. Expert in solving complex problems with modern technologies.</p>
+
+    <div class="summary-card">
+        <p class="summary-lead">
+            Dynamic and detail-oriented Software Engineer with a passion for clean code and scalable systems.
+            Specializing in <span>Artificial Intelligence</span>, <span>Machine Learning</span>, and
+            <span>Natural Language Processing</span>.
+        </p>
+
+        <p>
+            Possesses in-depth knowledge of modern deep learning architectures, particularly
+            <span>Transformer-based models</span>, including encoders, decoders, and embedding techniques.
+            Experienced in working with <span>BERT</span> and its variants for text representation,
+            normalization, and language understanding tasks.
+        </p>
+
+        <p>
+            Strongly interested in building robust NLP systems capable of handling
+            <span>noisy, real-world user-generated data</span>.
+            Focus areas include representation learning, model optimization, and designing
+            end-to-end NLP pipelines for applications such as
+            <span>sentiment analysis</span> and <span>mental-state detection</span>.
+        </p>
+
+        <p>
+            Currently pursuing studies at
+            <a href="https://ggits.org" class="ggits-link" target="_blank" rel="noopener noreferrer">
+                Gyan Ganga Institute of Technology and Science, Jabalpur
+            </a>,
+            with a strong emphasis on research-oriented and practical project work.
+        </p>
+    </div>
+</section>
+
+
+<section id="skills">
+    <h2>
+        Skills
+    </h2>
 </section>
 
 <section id="projects">
     <h2>Projects</h2>
     <div class="project-card">
         <h3><i class="fas fa-laptop-code"></i> E-Commerce Backend</h3>
-        <p>Built a robust API using Node.js and MongoDB to handle thousands of transactions per second.</p>
+        <p>
+            Built a robust API using Node.js and MongoDB to handle thousands of transactions per second.
+        </p>
     </div>
 </section>
 
@@ -106,8 +540,17 @@
     <p><i class="fas fa-certificate"></i> Meta Full-Stack Engineer Professional Certificate</p>
 </section>
 
+
+<script>
+/* ---------- Java Script ---------- */
+const toggleBtn = document.getElementById("contactToggle");
+const wrapper = document.querySelector(".contact-wrapper");
+
+toggleBtn.addEventListener("click", () => {
+    wrapper.classList.toggle("active");
+});
+</script>
+
+
 </body>
-
 </html>
-
-
